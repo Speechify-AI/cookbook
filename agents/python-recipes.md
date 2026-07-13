@@ -21,7 +21,7 @@ name = "audio-python-quickstart"
 version = "0.1.0"
 requires-python = ">=3.10"
 dependencies = [
-    "speechify-api>=2.0.0",
+    "speechify-api>=3.0.1",
     "python-dotenv>=1.0.0",
 ]
 ```
@@ -43,11 +43,11 @@ from speechify import Speechify
 
 load_dotenv()
 
-api_key = os.environ.get("SPEECHIFY_API_KEY")
-if not api_key:
+token = os.environ.get("SPEECHIFY_API_KEY")
+if not token:
     raise SystemExit("Set SPEECHIFY_API_KEY (see .env.example).")
 
-client = Speechify(api_key=api_key)
+client = Speechify(token=token)
 ```
 
 An async variant is available as `AsyncSpeechify` with identical method signatures.

@@ -7,7 +7,7 @@ if (!process.env.SPEECHIFY_API_KEY) {
   throw new Error("Set SPEECHIFY_API_KEY (copy .env.example to .env).");
 }
 
-const client = new SpeechifyClient({ apiKey: process.env.SPEECHIFY_API_KEY });
+const client = new SpeechifyClient({ token: process.env.SPEECHIFY_API_KEY });
 
 // Bundled sample: ~26s of NASA ISS spacewalk audio (public domain).
 const samplePath = path.resolve(import.meta.dirname, "../fixtures/spacewalk.wav");
@@ -50,7 +50,7 @@ async function main() {
   } finally {
     // 3. Clean up so cloned voices don't accumulate on your account.
     //    Remove this to keep the voice and reuse it later via voice.id.
-    await client.voices.delete({ id: voice.id });
+    await client.voices.delete({ voice_id: voice.id });
     console.log(`Deleted cloned voice ${voice.id}`);
   }
 }

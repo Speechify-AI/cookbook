@@ -8,11 +8,11 @@ from speechify import Speechify
 def main() -> None:
     load_dotenv()
 
-    api_key = os.environ.get("SPEECHIFY_API_KEY")
-    if not api_key:
+    token = os.environ.get("SPEECHIFY_API_KEY")
+    if not token:
         raise SystemExit("Set SPEECHIFY_API_KEY (copy .env.example to .env).")
 
-    client = Speechify(api_key=api_key)
+    client = Speechify(token=token)
 
     response = client.audio.speech(
         input="Hello! This is the Speechify text-to-speech API.",
