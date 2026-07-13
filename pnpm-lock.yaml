@@ -7,8 +7,8 @@ settings:
 catalogs:
   default:
     '@speechify/api':
-      specifier: 2.0.0
-      version: 2.0.0
+      specifier: 3.0.1
+      version: 3.0.1
     '@types/node':
       specifier: ^22.10.2
       version: 22.20.0
@@ -114,7 +114,7 @@ importers:
     dependencies:
       '@speechify/api':
         specifier: 'catalog:'
-        version: 2.0.0
+        version: 3.0.1
       dotenv:
         specifier: 'catalog:'
         version: 16.6.1
@@ -133,7 +133,7 @@ importers:
     dependencies:
       '@speechify/api':
         specifier: 'catalog:'
-        version: 2.0.0
+        version: 3.0.1
       dotenv:
         specifier: 'catalog:'
         version: 16.6.1
@@ -152,7 +152,7 @@ importers:
     dependencies:
       '@speechify/api':
         specifier: 'catalog:'
-        version: 2.0.0
+        version: 3.0.1
       dotenv:
         specifier: 'catalog:'
         version: 16.6.1
@@ -171,7 +171,7 @@ importers:
     dependencies:
       '@speechify/api':
         specifier: 'catalog:'
-        version: 2.0.0
+        version: 3.0.1
       dotenv:
         specifier: 'catalog:'
         version: 16.6.1
@@ -190,7 +190,7 @@ importers:
     dependencies:
       '@speechify/api':
         specifier: 'catalog:'
-        version: 2.0.0
+        version: 3.0.1
       dotenv:
         specifier: 'catalog:'
         version: 16.6.1
@@ -363,8 +363,8 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@speechify/api@2.0.0':
-    resolution: {integrity: sha512-GYIYO/B0bRArg9e4ljLxHL/ZG27p7X68UGu6bvEqBk0I8CSpqPKHO+rsGGJR+oIRzXZpR5LVNcS6RPN0ljnvNw==}
+  '@speechify/api@3.0.1':
+    resolution: {integrity: sha512-bEqbyvwGW0A/cgq+ZsQJVP3Hm4/0Bm1sniVtPLBh7vDNG2f/YY8y8sweWojoUnhIeIAL6bHBde43+VZLA2MYpA==}
     engines: {node: '>=18.0.0'}
 
   '@types/node@22.20.0':
@@ -482,7 +482,7 @@ snapshots:
   '@esbuild/win32-x64@0.28.1':
     optional: true
 
-  '@speechify/api@2.0.0': {}
+  '@speechify/api@3.0.1': {}
 
   '@types/node@22.20.0':
     dependencies:

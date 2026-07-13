@@ -19,14 +19,14 @@ def vtt_time(ms: int) -> str:
 def main() -> None:
     load_dotenv()
 
-    api_key = os.environ.get("SPEECHIFY_API_KEY")
-    if not api_key:
+    token = os.environ.get("SPEECHIFY_API_KEY")
+    if not token:
         raise SystemExit("Set SPEECHIFY_API_KEY (copy .env.example to .env).")
 
     resp = requests.post(
         "https://api.speechify.ai/v1/audio/speech",
         headers={
-            "Authorization": f"Bearer {api_key}",
+            "Authorization": f"Bearer {token}",
             "Content-Type": "application/json",
         },
         json={

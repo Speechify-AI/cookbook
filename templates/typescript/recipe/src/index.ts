@@ -5,7 +5,7 @@ if (!process.env.SPEECHIFY_API_KEY) {
   throw new Error("Set SPEECHIFY_API_KEY (copy .env.example to .env).");
 }
 
-const client = new SpeechifyClient({ apiKey: process.env.SPEECHIFY_API_KEY });
+const client = new SpeechifyClient({ token: process.env.SPEECHIFY_API_KEY });
 
 async function main() {
   // TODO: write your recipe here. See agents/speechify-tts.md for the API surface.

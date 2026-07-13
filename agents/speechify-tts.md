@@ -15,12 +15,12 @@ Both SDKs read `SPEECHIFY_API_KEY` from the environment. The deprecated
 
 ## Synthesize speech
 
-**TypeScript** (`@speechify/api` v2)
+**TypeScript** (`@speechify/api` v3)
 
 ```ts
 import { SpeechifyClient } from "@speechify/api";
 
-const client = new SpeechifyClient({ apiKey: process.env.SPEECHIFY_API_KEY! });
+const client = new SpeechifyClient({ token: process.env.SPEECHIFY_API_KEY! });
 
 const response = await client.audio.speech({
   input: "Hello! This is the Speechify text-to-speech API.",
@@ -34,12 +34,12 @@ import fs from "node:fs";
 fs.writeFileSync("output.mp3", Buffer.from(response.audio_data, "base64"));
 ```
 
-**Python** (`speechify-api` v2)
+**Python** (`speechify-api` v3)
 
 ```python
 from speechify import Speechify
 
-client = Speechify(api_key=api_key)
+client = Speechify(token=token)
 
 response = client.audio.speech(
     input="Hello! This is the Speechify text-to-speech API.",

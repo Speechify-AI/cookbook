@@ -10,8 +10,8 @@ from dotenv import load_dotenv
 def main() -> None:
     load_dotenv()
 
-    api_key = os.environ.get("SPEECHIFY_API_KEY")
-    if not api_key:
+    token = os.environ.get("SPEECHIFY_API_KEY")
+    if not token:
         raise SystemExit("Set SPEECHIFY_API_KEY (copy .env.example to .env).")
 
     # POST /v1/audio/stream returns raw audio bytes (HTTP chunked) instead of
@@ -20,7 +20,7 @@ def main() -> None:
     with requests.post(
         "https://api.speechify.ai/v1/audio/stream",
         headers={
-            "Authorization": f"Bearer {api_key}",
+            "Authorization": f"Bearer {token}",
             "Content-Type": "application/json",
             "Accept": "audio/mpeg",
         },

@@ -18,11 +18,11 @@ SAMPLE_PATH = os.path.join(os.path.dirname(__file__), "fixtures", "spacewalk.wav
 def main() -> None:
     load_dotenv()
 
-    api_key = os.environ.get("SPEECHIFY_API_KEY")
-    if not api_key:
+    token = os.environ.get("SPEECHIFY_API_KEY")
+    if not token:
         raise SystemExit("Set SPEECHIFY_API_KEY (copy .env.example to .env).")
 
-    auth = {"Authorization": f"Bearer {api_key}"}
+    auth = {"Authorization": f"Bearer {token}"}
 
     # 1. Clone a voice from an audio sample (10-30s of clean speech works well).
     #    POST /v1/voices is multipart/form-data — pass `files=` to requests and it
