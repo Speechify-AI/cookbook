@@ -24,9 +24,9 @@ const client = new SpeechifyClient({ token: process.env.SPEECHIFY_API_KEY! });
 
 const response = await client.audio.speech({
   input: "Hello! This is the Speechify text-to-speech API.",
-  voice_id: "george",
+  voice_id: "geffen_32",
   audio_format: "mp3",
-  model: "simba-english",
+  model: "simba-3.2",
 });
 
 // response.audio_data is base64-encoded audio.
@@ -43,9 +43,9 @@ client = Speechify(token=token)
 
 response = client.audio.speech(
     input="Hello! This is the Speechify text-to-speech API.",
-    voice_id="george",
+    voice_id="geffen_32",
     audio_format="mp3",
-    model="simba-english",
+    model="simba-3.2",
 )
 
 import base64
@@ -60,12 +60,12 @@ with open("output.mp3", "wb") as f:
 
 ## Parameters
 
-| Param          | Notes                                                                              |
-| -------------- | ---------------------------------------------------------------------------------- |
-| `input`        | Text (or SSML) to synthesize. Up to ~20,000 characters per request.                |
-| `voice_id`     | A voice identifier, e.g. `george`.                                                 |
-| `model`        | `simba-english` (English, lowest latency) or `simba-multilingual` (30+ languages). |
-| `audio_format` | `mp3`, `wav`, `ogg`, `aac`, …                                                      |
+| Param          | Notes                                                                                                                               |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| `input`        | Text (or SSML) to synthesize. Up to ~20,000 characters per request.                                                                 |
+| `voice_id`     | A voice identifier, e.g. `geffen_32`.                                                                                               |
+| `model`        | `simba-3.2` (English, lowest latency) or `simba-3.0` (multilingual: English plus German, Spanish, French, Italian, and Portuguese). |
+| `audio_format` | `mp3`, `wav`, `ogg`, `aac`, …                                                                                                       |
 
 ## Capabilities to build recipes around
 

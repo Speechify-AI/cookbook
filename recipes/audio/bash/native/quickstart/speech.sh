@@ -21,9 +21,9 @@ response=$(curl --fail-with-body --silent --show-error \
   -H "Content-Type: application/json" \
   -d '{
     "input": "Hello! This is the Speechify text-to-speech REST API, from curl.",
-    "voice_id": "george",
+    "voice_id": "geffen_32",
     "audio_format": "mp3",
-    "model": "simba-english"
+    "model": "simba-3.2"
   }')
 
 # Decode the base64 audio_data field into the output file. macOS base64 lacks

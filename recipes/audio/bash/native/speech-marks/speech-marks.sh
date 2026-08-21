@@ -21,9 +21,9 @@ response=$(curl --fail-with-body --silent --show-error \
   -H "Content-Type: application/json" \
   -d '{
     "input": "The quick brown fox jumps over the lazy dog.",
-    "voice_id": "george",
+    "voice_id": "geffen_32",
     "audio_format": "mp3",
-    "model": "simba-english"
+    "model": "simba-3.2"
   }')
 
 printf '%s' "$response" | jq -r '.audio_data' | base64 -d > output.mp3

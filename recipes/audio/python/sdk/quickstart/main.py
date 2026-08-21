@@ -16,9 +16,9 @@ def main() -> None:
 
     response = client.audio.speech(
         input="Hello! This is the Speechify text-to-speech API.",
-        voice_id="george",
+        voice_id="geffen_32",
         audio_format="mp3",
-        model="simba-english",
+        model="simba-3.2",
     )
 
     # The SDK returns the audio as a base64-encoded string.

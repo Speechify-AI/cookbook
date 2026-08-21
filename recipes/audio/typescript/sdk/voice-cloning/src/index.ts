@@ -43,7 +43,7 @@ async function main() {
       input: "Hello from a voice cloned with the Speechify API.",
       voice_id: voice.id,
       audio_format: "mp3",
-      model: "simba-english",
+      model: "simba-3.0",
     });
     fs.writeFileSync("output.mp3", Buffer.from(speech.audio_data, "base64"));
     console.log("Wrote output.mp3");

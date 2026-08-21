@@ -37,9 +37,9 @@ def main() -> None:
         },
         json={
             "input": SSML,
-            "voice_id": "george",
+            "voice_id": "geffen_32",
             "audio_format": "mp3",
-            "model": "simba-english",  # simba-english supports full SSML + emotion control
+            "model": "simba-3.2",  # simba-3.2 supports full SSML + emotion control
         },
         timeout=60,
     )
