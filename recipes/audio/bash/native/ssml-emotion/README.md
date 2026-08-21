@@ -29,7 +29,7 @@ You'll get an `output.mp3` that shifts emotion and prosody across the sentence.
 
 - Builds the request body with `jq -n --arg input "$SSML" ...` so the SSML string is
   JSON-escaped safely (newlines, quotes, angle brackets).
-- `POST https://api.speechify.ai/v1/audio/speech` with `model: "simba-english"`
+- `POST https://api.speechify.ai/v1/audio/speech` with `model: "simba-3.2"`
   (full SSML + emotion support).
 - **Emotion:** `<speechify:style emotion="...">` — one of `angry`, `cheerful`, `sad`,
   `terrified`, `relaxed`, `fearful`, `surprised`, `calm`, `assertive`, `energetic`,

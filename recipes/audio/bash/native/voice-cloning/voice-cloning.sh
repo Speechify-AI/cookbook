@@ -75,7 +75,7 @@ speech_response=$(curl --fail-with-body --silent --show-error \
     input: "Hello from a voice cloned with the Speechify API.",
     voice_id: $vid,
     audio_format: "mp3",
-    model: "simba-english"
+    model: "simba-3.0"
   }')")
 
 printf '%s' "$speech_response" | jq -r '.audio_data' | base64 -d > output.mp3

@@ -27,7 +27,7 @@ You'll get an `output.mp3` that shifts emotion and prosody across the sentence.
 
 - `POST https://api.speechify.ai/v1/audio/speech` with `Authorization: Bearer <key>`.
 - JSON body has SSML as the `input` value (single `<speak>` root), plus `voice_id`,
-  `audio_format`, and `model: "simba-english"` (full SSML + emotion support).
+  `audio_format`, and `model: "simba-3.2"` (full SSML + emotion support).
 - **Emotion:** `<speechify:style emotion="...">` — one of `angry`, `cheerful`, `sad`,
   `terrified`, `relaxed`, `fearful`, `surprised`, `calm`, `assertive`, `energetic`,
   `warm`, `direct`, `bright`.

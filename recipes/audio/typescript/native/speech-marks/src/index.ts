@@ -43,9 +43,9 @@ async function main() {
     },
     body: JSON.stringify({
       input: "The quick brown fox jumps over the lazy dog.",
-      voice_id: "george",
+      voice_id: "geffen_32",
       audio_format: "mp3",
-      model: "simba-english",
+      model: "simba-3.2",
     }),
   });
 

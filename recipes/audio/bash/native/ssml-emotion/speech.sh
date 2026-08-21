@@ -33,7 +33,7 @@ EOF
 # Build the JSON body with jq so the SSML string is escaped correctly.
 body=$(jq -n \
   --arg input "$SSML" \
-  '{input: $input, voice_id: "george", audio_format: "mp3", model: "simba-english"}')
+  '{input: $input, voice_id: "geffen_32", audio_format: "mp3", model: "simba-3.2"}')
 
 response=$(curl --fail-with-body --silent --show-error \
   -X POST "https://api.speechify.ai/v1/audio/speech" \

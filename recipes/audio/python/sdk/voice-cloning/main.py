@@ -46,7 +46,7 @@ def main() -> None:
             input="Hello from a voice cloned with the Speechify API.",
             voice_id=voice.id,
             audio_format="mp3",
-            model="simba-english",
+            model="simba-3.0",
         )
         with open("output.mp3", "wb") as f:
             f.write(base64.b64decode(speech.audio_data))

@@ -30,6 +30,6 @@ You'll get an `output.mp3` that shifts emotion and prosody across the sentence.
   `warm`, `direct`, `bright`.
 - **Prosody:** `<prosody rate="..." pitch="..." volume="...">` (named steps or percentages).
 - **Pauses:** `<break time="500ms" />`. **Emphasis:** `<emphasis level="strong">`.
-- Uses `model: "simba-english"`, which supports full SSML + emotion control.
+- Uses `model: "simba-3.2"`, which supports full SSML + emotion control.
 
 > SSML reference: https://docs.speechify.ai/tts/guides/ssml
