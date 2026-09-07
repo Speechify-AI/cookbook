@@ -6,7 +6,7 @@ but calling the REST API directly with `requests` + multipart form-data instead 
 
 ## Prerequisites
 
-- A Speechify API key — https://console.speechify.ai/api-keys
+- A Speechify API key — https://platform.speechify.ai/api-keys
 - **Voice cloning enabled on your plan** — otherwise the recipe exits with a message
   pointing to [Speechify pricing](https://speechify.ai/pricing) (the API returns
   `402 voice_cloning_not_included`).

@@ -9,7 +9,7 @@ key, and run it.
 ## Quick start
 
 ```bash
-# 1. Get an API key: https://console.speechify.ai/api-keys
+# 1. Get an API key: https://platform.speechify.ai/api-keys
 # 2. Pick a recipe below and follow its README.
 ```
 

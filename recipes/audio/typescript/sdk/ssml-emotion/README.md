@@ -4,7 +4,7 @@ Drive emotion, pitch, rate, pauses, and emphasis by passing **SSML** as the `inp
 
 ## Prerequisites
 
-- A Speechify API key — https://console.speechify.ai/api-keys
+- A Speechify API key — https://platform.speechify.ai/api-keys
 - Node 20+
 
 ## Setup

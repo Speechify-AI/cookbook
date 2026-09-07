@@ -5,7 +5,7 @@ with `requests` instead of the `speechify-api` SDK.
 
 ## Prerequisites
 
-- A Speechify API key — https://console.speechify.ai/api-keys
+- A Speechify API key — https://platform.speechify.ai/api-keys
 - Python 3.10+ and [uv](https://docs.astral.sh/uv/)
 
 ## Setup

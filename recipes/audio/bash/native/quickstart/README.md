@@ -6,7 +6,7 @@ shell script using `curl` + `jq`.
 
 ## Prerequisites
 
-- A Speechify API key — https://console.speechify.ai/api-keys
+- A Speechify API key — https://platform.speechify.ai/api-keys
 - `bash`, `curl`, `jq`, and `base64` (preinstalled on macOS and most Linux distros)
 
 ## Setup

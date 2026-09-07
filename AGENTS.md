@@ -36,7 +36,7 @@ below for the task at hand instead of loading everything up front.
 
 ## Quick reference
 
-- Get an API key: <https://console.speechify.ai/api-keys>
+- Get an API key: <https://platform.speechify.ai/api-keys>
 - Docs: <https://docs.speechify.ai> · LLM index: <https://docs.speechify.ai/llms.txt>
 - TS SDK: `@speechify/api` · Python SDK: `speechify-api`
 - Package manager: **pnpm** (JS) and **uv** (Python). Node 20+.

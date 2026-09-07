@@ -6,7 +6,7 @@ wire protocol.
 
 ## Prerequisites
 
-- A Speechify API key — https://console.speechify.ai/api-keys
+- A Speechify API key — https://platform.speechify.ai/api-keys
 - Node 20+ (for built-in `fetch` and `Readable.fromWeb`)
 
 ## Setup
