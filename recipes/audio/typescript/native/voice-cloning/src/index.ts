@@ -12,10 +12,27 @@ if (!token) {
 }
 
 const BASE = "https://api.speechify.ai";
+// The verified-consent flow ships on this API version — pin it explicitly.
+const VERSION = "2026-09-13";
+const authHeaders = { Authorization: `Bearer ${token}`, "Speechify-Version": VERSION };
 
-// Bundled sample: ~26s of NASA ISS spacewalk audio (public domain).
-const samplePath = path.resolve(import.meta.dirname, "../fixtures/spacewalk.wav");
+// Cloning requires VERIFIED consent: the speaker records themselves reading a
+// phrase the API returns, and that recording is kept as the consent record. It
+// must be the SAME person as the voice sample, so this recipe is
+// bring-your-own-audio — there is no sample that ships with valid consent.
+const dir = import.meta.dirname;
+const CONSENT_FULL_NAME = process.env.CONSENT_FULL_NAME ?? "Jane Doe";
+const samplePath = path.resolve(process.env.SAMPLE_PATH ?? path.join(dir, "../sample.wav"));
+const consentPath = path.resolve(process.env.CONSENT_RECORDING_PATH ?? path.join(dir, "../consent.wav"));
+// The challenge is single-use and its phrase is dynamic, so we cache it between
+// runs: run once to get the phrase, record it, run again to submit.
+const challengeCache = path.join(dir, "../.consent-challenge.json");
 
+interface Challenge {
+  id: string;
+  phrase: string;
+  expires_at: string;
+}
 interface CreatedVoice {
   id: string;
   display_name: string;
@@ -27,23 +44,58 @@ interface SpeechResponse {
   billable_characters_count: number;
 }
 
+function loadChallenge(): Challenge | null {
+  if (!fs.existsSync(challengeCache)) return null;
+  const c = JSON.parse(fs.readFileSync(challengeCache, "utf8")) as Challenge;
+  if (new Date(c.expires_at).getTime() <= Date.now()) return null; // expired → make a fresh one
+  return c;
+}
+
 async function main() {
-  // 1. Clone a voice from an audio sample (10–30s of clean speech works well).
-  //    POST /v1/voices is multipart/form-data — let fetch set the boundary by
-  //    passing a FormData instance directly (do NOT set Content-Type manually).
-  //    `consent` is REQUIRED: a JSON string attesting you have the speaker's
-  //    permission to clone their voice.
+  // 1. Get (or reuse) a consent challenge. Its `phrase` is what the speaker must
+  //    read aloud; `id` ties the recording to this consent on the create.
+  let challenge = loadChallenge();
+  if (!challenge) {
+    const res = await fetch(`${BASE}/v1/voices/consent-challenges`, {
+      method: "POST",
+      headers: { ...authHeaders, "Content-Type": "application/json" },
+      body: JSON.stringify({ full_name: CONSENT_FULL_NAME }),
+    });
+    if (!res.ok) {
+      throw new Error(`POST /v1/voices/consent-challenges → ${res.status} ${res.statusText}: ${await res.text()}`);
+    }
+    challenge = (await res.json()) as Challenge;
+    fs.writeFileSync(challengeCache, JSON.stringify(challenge, null, 2));
+  }
+
+  // 2. Make sure we have both recordings before spending the (single-use) challenge.
+  const missing = [
+    fs.existsSync(samplePath) ? null : `  sample:  ${samplePath}  (${CONSENT_FULL_NAME}'s voice, 10–30s of clean speech)`,
+    fs.existsSync(consentPath) ? null : `  consent: ${consentPath}  (the SAME person reading the phrase below)`,
+  ].filter(Boolean);
+  if (missing.length > 0) {
+    console.log(
+      `\nConsent required. Have ${CONSENT_FULL_NAME} record themselves reading this phrase, exactly as written:\n\n` +
+        `  "${challenge.phrase}"\n\n` +
+        `Then provide these files and re-run (paths override via SAMPLE_PATH / CONSENT_RECORDING_PATH):\n` +
+        missing.join("\n") +
+        `\n\nChallenge expires ${challenge.expires_at}.\n`,
+    );
+    process.exit(1);
+  }
+
+  // 3. Clone the voice. POST /v1/voices is multipart/form-data — let fetch set the
+  //    boundary by passing a FormData instance directly (do NOT set Content-Type).
   const form = new FormData();
   form.append("name", "cookbook-cloned-voice");
   form.append("gender", "male");
-  form.append("consent", JSON.stringify({ fullName: "Jane Doe", email: "jane@example.com" }));
-  // Wrap the file bytes in a Blob with the original filename for the multipart part.
-  const sampleBytes = fs.readFileSync(samplePath);
-  form.append("sample", new Blob([sampleBytes], { type: "audio/wav" }), "spacewalk.wav");
+  form.append("consent_challenge_id", challenge.id);
+  form.append("sample", new Blob([fs.readFileSync(samplePath)]), path.basename(samplePath));
+  form.append("consent_recording", new Blob([fs.readFileSync(consentPath)]), path.basename(consentPath));
 
   const createRes = await fetch(`${BASE}/v1/voices`, {
     method: "POST",
-    headers: { Authorization: `Bearer ${token}` },
+    headers: authHeaders,
     body: form,
   });
 
@@ -60,18 +112,16 @@ async function main() {
       `POST /v1/voices → ${createRes.status} ${createRes.statusText}: ${await createRes.text()}`,
     );
   }
+  fs.rmSync(challengeCache, { force: true }); // challenge is spent
 
   const voice = (await createRes.json()) as CreatedVoice;
   console.log(`Cloned voice created: ${voice.id} (${voice.display_name}, type=${voice.type})`);
 
   try {
-    // 2. Synthesize speech using the cloned voice — pass its id as voice_id.
+    // 4. Synthesize speech using the cloned voice — pass its id as voice_id.
     const speechRes = await fetch(`${BASE}/v1/audio/speech`, {
       method: "POST",
-      headers: {
-        Authorization: `Bearer ${token}`,
-        "Content-Type": "application/json",
-      },
+      headers: { ...authHeaders, "Content-Type": "application/json" },
       body: JSON.stringify({
         input: "Hello from a voice cloned with the Speechify API.",
         voice_id: voice.id,
@@ -88,11 +138,11 @@ async function main() {
     fs.writeFileSync("output.mp3", Buffer.from(speech.audio_data, "base64"));
     console.log("Wrote output.mp3");
   } finally {
-    // 3. Clean up so cloned voices don't accumulate on your account.
+    // 5. Clean up so cloned voices don't accumulate on your account.
     //    Remove this to keep the voice and reuse it later via voice.id.
     const delRes = await fetch(`${BASE}/v1/voices/${encodeURIComponent(voice.id)}`, {
       method: "DELETE",
-      headers: { Authorization: `Bearer ${token}` },
+      headers: authHeaders,
     });
     if (!delRes.ok) {
       console.error(
