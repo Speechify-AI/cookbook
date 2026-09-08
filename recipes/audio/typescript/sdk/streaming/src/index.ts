@@ -16,11 +16,13 @@ async function main() {
   // long inputs.
   const response = await client.audio.stream({
     Accept: "audio/mpeg",
-    input:
-      "Streaming lets you start playing audio before the whole clip is ready. " +
-      "This sentence is being synthesized and written to disk chunk by chunk.",
-    voice_id: "geffen_32",
-    model: "simba-3.2",
+    body: {
+      input:
+        "Streaming lets you start playing audio before the whole clip is ready. " +
+        "This sentence is being synthesized and written to disk chunk by chunk.",
+      voice_id: "geffen_32",
+      model: "simba-3.2",
+    },
   });
 
   const outFile = "output.mp3";

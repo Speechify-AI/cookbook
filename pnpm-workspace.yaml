@@ -9,7 +9,7 @@ packages:
 # Single source of truth for shared dependency versions.
 # Recipes reference these with "catalog:" instead of pinning their own.
 catalog:
-  "@speechify/api": 3.0.1
+  "@speechify/api": 4.0.1
   tsx: ^4.19.2
   typescript: ^5.7.2
   "@types/node": ^22.10.2

@@ -21,7 +21,7 @@ name = "audio-python-quickstart"
 version = "0.1.0"
 requires-python = ">=3.10"
 dependencies = [
-    "speechify-api>=3.0.1",
+    "speechify-api>=4.0.0",
     "python-dotenv>=1.0.0",
 ]
 ```

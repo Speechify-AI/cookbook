@@ -13,6 +13,9 @@ __pycache__/
 .env.local
 !.env.example
 
+# Voice-cloning consent challenge cache (single-use, per-run)
+.consent-challenge.json
+
 # Generated audio / artifacts
 *.mp3
 *.wav
