@@ -1,0 +1,9 @@
+[project]
+name = "audio-python-version-pinning-and-idempotency-native"
+version = "0.1.0"
+description = "Pin the API version and replay a POST idempotently via the Speechify REST API."
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.32.0",
+    "python-dotenv>=1.0.0",
+]

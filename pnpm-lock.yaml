@@ -30,6 +30,86 @@ importers:
         specifier: ^3.4.2
         version: 3.8.4
 
+  recipes/audio/typescript/native/error-handling:
+    dependencies:
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.6.1
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.0
+      tsx:
+        specifier: 'catalog:'
+        version: 4.22.4
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
+  recipes/audio/typescript/native/list-models:
+    dependencies:
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.6.1
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.0
+      tsx:
+        specifier: 'catalog:'
+        version: 4.22.4
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
+  recipes/audio/typescript/native/list-voices:
+    dependencies:
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.6.1
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.0
+      tsx:
+        specifier: 'catalog:'
+        version: 4.22.4
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
+  recipes/audio/typescript/native/multilingual:
+    dependencies:
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.6.1
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.0
+      tsx:
+        specifier: 'catalog:'
+        version: 4.22.4
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
+  recipes/audio/typescript/native/output-formats:
+    dependencies:
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.6.1
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.0
+      tsx:
+        specifier: 'catalog:'
+        version: 4.22.4
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
   recipes/audio/typescript/native/quickstart:
     dependencies:
       dotenv:
@@ -94,8 +174,151 @@ importers:
         specifier: 'catalog:'
         version: 5.9.3
 
+  recipes/audio/typescript/native/version-pinning-and-idempotency:
+    dependencies:
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.6.1
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.0
+      tsx:
+        specifier: 'catalog:'
+        version: 4.22.4
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
   recipes/audio/typescript/native/voice-cloning:
     dependencies:
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.6.1
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.0
+      tsx:
+        specifier: 'catalog:'
+        version: 4.22.4
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
+  recipes/audio/typescript/native/voice-language-model-support:
+    dependencies:
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.6.1
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.0
+      tsx:
+        specifier: 'catalog:'
+        version: 4.22.4
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
+  recipes/audio/typescript/native/watermark:
+    dependencies:
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.6.1
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.0
+      tsx:
+        specifier: 'catalog:'
+        version: 4.22.4
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
+  recipes/audio/typescript/sdk/error-handling:
+    dependencies:
+      '@speechify/api':
+        specifier: 'catalog:'
+        version: 4.0.1
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.6.1
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.0
+      tsx:
+        specifier: 'catalog:'
+        version: 4.22.4
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
+  recipes/audio/typescript/sdk/list-models:
+    dependencies:
+      '@speechify/api':
+        specifier: 'catalog:'
+        version: 4.0.1
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.6.1
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.0
+      tsx:
+        specifier: 'catalog:'
+        version: 4.22.4
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
+  recipes/audio/typescript/sdk/list-voices:
+    dependencies:
+      '@speechify/api':
+        specifier: 'catalog:'
+        version: 4.0.1
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.6.1
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.0
+      tsx:
+        specifier: 'catalog:'
+        version: 4.22.4
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
+  recipes/audio/typescript/sdk/multilingual:
+    dependencies:
+      '@speechify/api':
+        specifier: 'catalog:'
+        version: 4.0.1
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.6.1
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.0
+      tsx:
+        specifier: 'catalog:'
+        version: 4.22.4
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
+  recipes/audio/typescript/sdk/output-formats:
+    dependencies:
+      '@speechify/api':
+        specifier: 'catalog:'
+        version: 4.0.1
       dotenv:
         specifier: 'catalog:'
         version: 16.6.1
@@ -186,7 +409,45 @@ importers:
         specifier: 'catalog:'
         version: 5.9.3
 
+  recipes/audio/typescript/sdk/version-pinning-and-idempotency:
+    dependencies:
+      '@speechify/api':
+        specifier: 'catalog:'
+        version: 4.0.1
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.6.1
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.0
+      tsx:
+        specifier: 'catalog:'
+        version: 4.22.4
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
   recipes/audio/typescript/sdk/voice-cloning:
+    dependencies:
+      '@speechify/api':
+        specifier: 'catalog:'
+        version: 4.0.1
+      dotenv:
+        specifier: 'catalog:'
+        version: 16.6.1
+    devDependencies:
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.0
+      tsx:
+        specifier: 'catalog:'
+        version: 4.22.4
+      typescript:
+        specifier: 'catalog:'
+        version: 5.9.3
+
+  recipes/audio/typescript/sdk/voice-language-model-support:
     dependencies:
       '@speechify/api':
         specifier: 'catalog:'

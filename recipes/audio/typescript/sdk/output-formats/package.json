@@ -1,0 +1,20 @@
+{
+  "name": "tts-output-formats-sdk",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Control the exact codec, sample rate, and bitrate via output_format with the Speechify TTS SDK.",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@speechify/api": "catalog:",
+    "dotenv": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
+  }
+}

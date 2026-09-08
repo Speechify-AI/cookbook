@@ -62,7 +62,7 @@ the voice `sample` — so there is no shippable sample that comes with valid con
 recipe is deliberately bring-your-own-audio. Only clone voices you are authorized to.
 
 > The old `consent` JSON field (`fullName` + `email`) is removed on `Speechify-Version:
-> 2026-09-13` — see the
+2026-09-13` — see the
 > [migration guide](https://docs.speechify.ai/build/guides/deprecations/migrating-voice-cloning-consent).
 >
 > Voice cloning reference: https://docs.speechify.ai/build/guides/voice-cloning/overview

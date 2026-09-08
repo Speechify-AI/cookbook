@@ -1,0 +1,9 @@
+[project]
+name = "audio-python-multilingual"
+version = "0.1.0"
+description = "Synthesize non-English speech with the Speechify SDK (simba-3.0 + runtime voice discovery)."
+requires-python = ">=3.10"
+dependencies = [
+    "speechify-api>=4.0.0",
+    "python-dotenv>=1.0.0",
+]

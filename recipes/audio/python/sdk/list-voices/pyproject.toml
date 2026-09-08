@@ -1,0 +1,9 @@
+[project]
+name = "audio-python-list-voices"
+version = "0.1.0"
+description = "List available TTS voices with the Speechify SDK."
+requires-python = ">=3.10"
+dependencies = [
+    "speechify-api>=4.0.0",
+    "python-dotenv>=1.0.0",
+]

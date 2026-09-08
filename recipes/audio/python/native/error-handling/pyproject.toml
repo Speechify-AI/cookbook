@@ -1,0 +1,9 @@
+[project]
+name = "audio-python-error-handling-native"
+version = "0.1.0"
+description = "Handle Speechify API errors correctly via the Speechify REST API."
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.32.0",
+    "python-dotenv>=1.0.0",
+]

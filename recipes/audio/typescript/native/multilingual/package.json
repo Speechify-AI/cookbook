@@ -1,0 +1,19 @@
+{
+  "name": "tts-multilingual-native",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Synthesize non-English speech via the Speechify REST API (simba-3.0 + runtime voice discovery).",
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "dotenv": "catalog:"
+  },
+  "devDependencies": {
+    "@types/node": "catalog:",
+    "tsx": "catalog:",
+    "typescript": "catalog:"
+  }
+}
