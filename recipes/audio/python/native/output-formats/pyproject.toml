@@ -1,0 +1,9 @@
+[project]
+name = "audio-python-output-formats-native"
+version = "0.1.0"
+description = "Control the exact codec, sample rate, and bitrate via output_format using the Speechify REST API directly (no SDK)."
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.32.0",
+    "python-dotenv>=1.0.0",
+]

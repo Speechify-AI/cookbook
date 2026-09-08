@@ -1,0 +1,9 @@
+[project]
+name = "audio-python-voice-language-model-support"
+version = "0.1.0"
+description = "Discover which model + language combinations a voice supports with the Speechify SDK."
+requires-python = ">=3.10"
+dependencies = [
+    "speechify-api>=4.0.0",
+    "python-dotenv>=1.0.0",
+]

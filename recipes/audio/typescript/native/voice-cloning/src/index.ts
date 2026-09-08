@@ -23,7 +23,9 @@ const authHeaders = { Authorization: `Bearer ${token}`, "Speechify-Version": VER
 const dir = import.meta.dirname;
 const CONSENT_FULL_NAME = process.env.CONSENT_FULL_NAME ?? "Jane Doe";
 const samplePath = path.resolve(process.env.SAMPLE_PATH ?? path.join(dir, "../sample.wav"));
-const consentPath = path.resolve(process.env.CONSENT_RECORDING_PATH ?? path.join(dir, "../consent.wav"));
+const consentPath = path.resolve(
+  process.env.CONSENT_RECORDING_PATH ?? path.join(dir, "../consent.wav"),
+);
 // The challenge is single-use and its phrase is dynamic, so we cache it between
 // runs: run once to get the phrase, record it, run again to submit.
 const challengeCache = path.join(dir, "../.consent-challenge.json");
@@ -62,7 +64,9 @@ async function main() {
       body: JSON.stringify({ full_name: CONSENT_FULL_NAME }),
     });
     if (!res.ok) {
-      throw new Error(`POST /v1/voices/consent-challenges → ${res.status} ${res.statusText}: ${await res.text()}`);
+      throw new Error(
+        `POST /v1/voices/consent-challenges → ${res.status} ${res.statusText}: ${await res.text()}`,
+      );
     }
     challenge = (await res.json()) as Challenge;
     fs.writeFileSync(challengeCache, JSON.stringify(challenge, null, 2));
@@ -70,8 +74,12 @@ async function main() {
 
   // 2. Make sure we have both recordings before spending the (single-use) challenge.
   const missing = [
-    fs.existsSync(samplePath) ? null : `  sample:  ${samplePath}  (${CONSENT_FULL_NAME}'s voice, 10–30s of clean speech)`,
-    fs.existsSync(consentPath) ? null : `  consent: ${consentPath}  (the SAME person reading the phrase below)`,
+    fs.existsSync(samplePath)
+      ? null
+      : `  sample:  ${samplePath}  (${CONSENT_FULL_NAME}'s voice, 10–30s of clean speech)`,
+    fs.existsSync(consentPath)
+      ? null
+      : `  consent: ${consentPath}  (the SAME person reading the phrase below)`,
   ].filter(Boolean);
   if (missing.length > 0) {
     console.log(
@@ -91,7 +99,11 @@ async function main() {
   form.append("gender", "male");
   form.append("consent_challenge_id", challenge.id);
   form.append("sample", new Blob([fs.readFileSync(samplePath)]), path.basename(samplePath));
-  form.append("consent_recording", new Blob([fs.readFileSync(consentPath)]), path.basename(consentPath));
+  form.append(
+    "consent_recording",
+    new Blob([fs.readFileSync(consentPath)]),
+    path.basename(consentPath),
+  );
 
   const createRes = await fetch(`${BASE}/v1/voices`, {
     method: "POST",

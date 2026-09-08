@@ -1,0 +1,9 @@
+[project]
+name = "audio-python-list-voices-native"
+version = "0.1.0"
+description = "List available TTS voices via the Speechify REST API."
+requires-python = ">=3.10"
+dependencies = [
+    "requests>=2.32.0",
+    "python-dotenv>=1.0.0",
+]

@@ -1,0 +1,9 @@
+[project]
+name = "audio-python-output-formats"
+version = "0.1.0"
+description = "Control the exact codec, sample rate, and bitrate via output_format with the Speechify TTS SDK."
+requires-python = ">=3.10"
+dependencies = [
+    "speechify-api>=4.0.0",
+    "python-dotenv>=1.0.0",
+]

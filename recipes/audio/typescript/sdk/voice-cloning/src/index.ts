@@ -18,7 +18,9 @@ const dir = import.meta.dirname;
 // The voice to clone (10–30s of clean speech) and the consent recording (the
 // same person reading the challenge phrase, 5–30s). Same speaker in both.
 const samplePath = path.resolve(process.env.SAMPLE_PATH ?? path.join(dir, "../sample.wav"));
-const consentPath = path.resolve(process.env.CONSENT_RECORDING_PATH ?? path.join(dir, "../consent.wav"));
+const consentPath = path.resolve(
+  process.env.CONSENT_RECORDING_PATH ?? path.join(dir, "../consent.wav"),
+);
 // The challenge is single-use and its phrase is dynamic, so we cache it between
 // runs: run once to get the phrase, record it, run again to submit.
 const challengeCache = path.join(dir, "../.consent-challenge.json");
@@ -47,8 +49,12 @@ async function main() {
 
   // 2. Make sure we have both recordings before spending the (single-use) challenge.
   const missing = [
-    fs.existsSync(samplePath) ? null : `  sample:  ${samplePath}  (${CONSENT_FULL_NAME}'s voice, 10–30s of clean speech)`,
-    fs.existsSync(consentPath) ? null : `  consent: ${consentPath}  (the SAME person reading the phrase below)`,
+    fs.existsSync(samplePath)
+      ? null
+      : `  sample:  ${samplePath}  (${CONSENT_FULL_NAME}'s voice, 10–30s of clean speech)`,
+    fs.existsSync(consentPath)
+      ? null
+      : `  consent: ${consentPath}  (the SAME person reading the phrase below)`,
   ].filter(Boolean);
   if (missing.length > 0) {
     console.log(
