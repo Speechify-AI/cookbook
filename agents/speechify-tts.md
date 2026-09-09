@@ -15,7 +15,7 @@ Both SDKs read `SPEECHIFY_API_KEY` from the environment. The deprecated
 
 ## Synthesize speech
 
-**TypeScript** (`@speechify/api` v3)
+**TypeScript** (`@speechify/api` v4)
 
 ```ts
 import { SpeechifyClient } from "@speechify/api";
@@ -34,7 +34,7 @@ import fs from "node:fs";
 fs.writeFileSync("output.mp3", Buffer.from(response.audio_data, "base64"));
 ```
 
-**Python** (`speechify-api` v3)
+**Python** (`speechify-api` v4)
 
 ```python
 from speechify import Speechify
@@ -60,12 +60,12 @@ with open("output.mp3", "wb") as f:
 
 ## Parameters
 
-| Param          | Notes                                                                                                                               |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| `input`        | Text (or SSML) to synthesize. Up to ~20,000 characters per request.                                                                 |
-| `voice_id`     | A voice identifier, e.g. `geffen_32`.                                                                                               |
-| `model`        | `simba-3.2` (English, lowest latency) or `simba-3.0` (multilingual: English plus German, Spanish, French, Italian, and Portuguese). |
-| `audio_format` | `mp3`, `wav`, `ogg`, `aac`, …                                                                                                       |
+| Param          | Notes                                                                                                                                                                                                 |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `input`        | Text (or SSML) to synthesize. Limits are per endpoint: 2,000 characters for `audio.speech`, 20,000 for `audio.stream` / `audio.stream_with_timestamps` (<https://docs.speechify.ai/docs/api-limits>). |
+| `voice_id`     | A voice identifier, e.g. `geffen_32`.                                                                                                                                                                 |
+| `model`        | `simba-3.2` (English, lowest latency) or `simba-3.0` (multilingual: English plus German, Spanish, French, Italian, and Portuguese).                                                                   |
+| `audio_format` | `mp3`, `wav`, `ogg`, `aac`, …                                                                                                                                                                         |
 
 ## Capabilities to build recipes around
 

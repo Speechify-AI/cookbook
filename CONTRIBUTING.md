@@ -17,8 +17,7 @@ Thanks for adding to the Speechify Cookbook! The full, authoritative checklist l
 3. Read the language guide:
    [`typescript-recipes.md`](./agents/typescript-recipes.md) or
    [`python-recipes.md`](./agents/python-recipes.md), and the API reference
-   [`speechify-tts.md`](./agents/speechify-tts.md) /
-   [`voice-agents.md`](./agents/voice-agents.md).
+   [`speechify-tts.md`](./agents/speechify-tts.md).
 4. Write the recipe + a README following the fixed template.
 5. Update [`README.md`](./README.md) and [`COVERAGE.md`](./COVERAGE.md).
 6. Run `pnpm format`, then verify the recipe runs from a clean state.

@@ -28,5 +28,5 @@ Keeping the cookbook consistent as it grows.
 
 The Speechify API evolves. Before trusting a method name or response field, check the
 installed SDK or the live docs (`https://docs.speechify.ai/llms.txt` is a good index). If
-reality differs from the notes in `agents/speechify-tts.md` or `agents/voice-agents.md`,
+reality differs from the notes in `agents/speechify-tts.md`,
 trust the API and update those files in the same change.
