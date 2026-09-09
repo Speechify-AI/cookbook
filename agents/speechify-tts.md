@@ -60,12 +60,12 @@ with open("output.mp3", "wb") as f:
 
 ## Parameters
 
-| Param          | Notes                                                                                                                               |
-| -------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Param          | Notes                                                                                                                                                                                                 |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `input`        | Text (or SSML) to synthesize. Limits are per endpoint: 2,000 characters for `audio.speech`, 20,000 for `audio.stream` / `audio.stream_with_timestamps` (<https://docs.speechify.ai/docs/api-limits>). |
-| `voice_id`     | A voice identifier, e.g. `geffen_32`.                                                                                               |
-| `model`        | `simba-3.2` (English, lowest latency) or `simba-3.0` (multilingual: English plus German, Spanish, French, Italian, and Portuguese). |
-| `audio_format` | `mp3`, `wav`, `ogg`, `aac`, …                                                                                                       |
+| `voice_id`     | A voice identifier, e.g. `geffen_32`.                                                                                                                                                                 |
+| `model`        | `simba-3.2` (English, lowest latency) or `simba-3.0` (multilingual: English plus German, Spanish, French, Italian, and Portuguese).                                                                   |
+| `audio_format` | `mp3`, `wav`, `ogg`, `aac`, …                                                                                                                                                                         |
 
 ## Capabilities to build recipes around
 
