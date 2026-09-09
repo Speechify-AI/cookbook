@@ -28,7 +28,7 @@ async function main() {
 
   fs.writeFileSync("output.mp3", Buffer.from(response.audio_data, "base64"));
 
-  // `speechMarks.chunks` holds one entry per word, with start/end times in the audio.
+  // `speech_marks.chunks` holds one entry per word, with start/end times in the audio.
   const words = response.speech_marks.chunks;
 
   // Build a WebVTT file with one cue per word — the basis for karaoke-style highlighting.
