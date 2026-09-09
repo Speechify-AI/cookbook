@@ -46,7 +46,7 @@ speechify-cookbook/
 
 | Folder   | What                                        | Status                                  |
 | -------- | ------------------------------------------- | --------------------------------------- |
-| `audio/` | Text-to-Speech, plus future audio products. | Active. TypeScript + Python on v2 SDKs. |
+| `audio/` | Text-to-Speech, plus future audio products. | Active. TypeScript + Python on v4 SDKs. |
 
 ## Languages and tooling
 
