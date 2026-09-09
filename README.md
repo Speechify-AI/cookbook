@@ -1,4 +1,4 @@
-# Speechify Cookbook
+# SpeechifyAI Cookbook
 
 Focused, runnable recipes for the Speechify
 [Text-to-Speech](https://docs.speechify.ai/tts) API.
