@@ -13,6 +13,7 @@ from speechify import Speechify
 OUTPUTS = [
     ("mp3_24000_128", "output_mp3_128.mp3"),  # media / default quality
     ("ulaw_8000", "output_ulaw_8000.ulaw"),  # telephony: 8kHz μ-law (RAW, no header)
+    # 24 kHz mislabelled rate=16000 before API version 2026-09-30.
     ("pcm_16000", "output_pcm_16000.pcm"),  # telephony: raw 16-bit PCM (RAW, no header)
     ("wav_48000", "output_wav_48000.wav"),
 ]

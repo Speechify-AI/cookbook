@@ -36,6 +36,12 @@ You'll get four files in this folder: `output_mp3_128.mp3`, `output_ulaw_8000.ul
 - Valid values include: `pcm_16000`, `pcm_24000`, `ulaw_8000`, `mp3_24000_64`,
   `mp3_24000_128`, `mp3_22050_160`, `mp3_24000_160`, `wav_48000`. An invalid value
   returns `400` listing the supported formats.
+- **`pcm_16000` is version-gated.** On a workspace pinned before API version
+  `2026-09-30` the Simba 3 models answer it with 24 kHz samples labelled
+  `rate=16000`, so a 16 kHz telephony pipeline plays them 1.5x slow and pitched
+  down. A workspace created on or after `2026-09-30` is already correct. On an
+  older pin, move the pin or use `ulaw_8000`. See
+  [Audio Formats](https://docs.speechify.ai/build/guides/concepts/audio-formats).
 - Telephony pipelines want `ulaw_8000` or `pcm_16000`; media pipelines want the mp3
   bitrate variants.
 - Response JSON: `audio_data` (base64) plus the resolved `output_format` echoed back.

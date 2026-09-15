@@ -24,6 +24,7 @@ interface SpeechResponse {
 const OUTPUTS = [
   { format: "mp3_24000_128", filename: "output_mp3_128.mp3" }, // media / default quality
   { format: "ulaw_8000", filename: "output_ulaw_8000.ulaw" }, // telephony: 8kHz μ-law (RAW, no header)
+  // 24 kHz mislabelled rate=16000 before API version 2026-09-30.
   { format: "pcm_16000", filename: "output_pcm_16000.pcm" }, // telephony: raw 16-bit PCM (RAW, no header)
   { format: "wav_48000", filename: "output_wav_48000.wav" },
 ] as const;
