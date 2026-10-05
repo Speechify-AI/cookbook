@@ -69,7 +69,9 @@ with open("output.mp3", "wb") as f:
 
 ## Capabilities to build recipes around
 
-- **SSML controls** — pitch, rate, pauses, emphasis, and emotion presets.
+- **SSML controls** - pauses (`<break>`), speaking rate (`<prosody rate>`), and pronunciation
+  (`<sub alias>`). Emotion, pitch, volume, and emphasis tags are accepted and not applied on
+  current models, so recipes do not use them.
 - **Word-level timestamps / speech marks** — for caption/highlight sync.
 - **Voice cloning** — clone a voice from a 10–30s sample
   (<https://docs.speechify.ai/tts/guides/voice-cloning>).

@@ -29,4 +29,4 @@ You'll get an `output.mp3` written chunk by chunk.
   `audio/aac`, or `audio/pcm`), `input`, `voice_id`, and `model`.
 - Receives a `BinaryResponse`; calls `.stream()` for a Web `ReadableStream`, then pipes
   it through Node `stream/promises` `pipeline` (which handles backpressure).
-- For prosody/emotion control, pass SSML in `input` (see the `ssml-emotion` recipe).
+- For pauses, pacing, and pronunciation, pass SSML in `input` (see the `ssml-emotion` recipe).

@@ -1,7 +1,7 @@
 [project]
 name = "audio-python-native-ssml-emotion"
 version = "0.1.0"
-description = "Control emotion, pitch, rate, pauses and emphasis via SSML using the Speechify TTS REST API directly (no SDK)."
+description = "Control pauses, speaking rate and pronunciation via SSML using the Speechify TTS REST API directly (no SDK)."
 requires-python = ">=3.10"
 dependencies = [
     "requests>=2.28.0",

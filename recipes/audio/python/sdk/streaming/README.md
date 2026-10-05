@@ -29,4 +29,4 @@ You'll get an `output.mp3` written chunk by chunk.
   or `audio/pcm`), `input`, `voice_id`, and `model`.
 - Iterates the returned `Iterator[bytes]` and writes each chunk straight to disk — the
   same iterator could instead feed an audio player or HTTP response.
-- For prosody/emotion control, pass SSML in `input` (see the `ssml-emotion` recipe).
+- For pauses, pacing, and pronunciation, pass SSML in `input` (see the `ssml-emotion` recipe).

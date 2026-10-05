@@ -40,7 +40,7 @@ recipes/<product>/<language>/{sdk,native}/<recipe>/
 | [quickstart](./recipes/audio/typescript/native/quickstart)                                           | Native | Same, calling the REST API directly with `fetch`.                 |
 | [streaming](./recipes/audio/typescript/sdk/streaming)                                                | SDK    | Stream audio to disk as it is generated.                          |
 | [streaming](./recipes/audio/typescript/native/streaming)                                             | Native | Streaming via raw `fetch` + `pipeline`.                           |
-| [ssml-emotion](./recipes/audio/typescript/sdk/ssml-emotion)                                          | SDK    | Control emotion, pitch, rate, pauses & emphasis via SSML.         |
+| [ssml-emotion](./recipes/audio/typescript/sdk/ssml-emotion)                                          | SDK    | Pauses, speaking rate & pronunciation aliases via SSML.           |
 | [ssml-emotion](./recipes/audio/typescript/native/ssml-emotion)                                       | Native | Same SSML controls, via raw `fetch`.                              |
 | [speech-marks](./recipes/audio/typescript/sdk/speech-marks)                                          | SDK    | Word-level timestamps → WebVTT captions.                          |
 | [speech-marks](./recipes/audio/typescript/native/speech-marks)                                       | Native | Same captions, via raw `fetch`.                                   |
@@ -70,7 +70,7 @@ recipes/<product>/<language>/{sdk,native}/<recipe>/
 | [quickstart](./recipes/audio/python/native/quickstart)                                           | Native | Same, calling the REST API directly with `requests`.              |
 | [streaming](./recipes/audio/python/sdk/streaming)                                                | SDK    | Stream audio to disk as it is generated.                          |
 | [streaming](./recipes/audio/python/native/streaming)                                             | Native | Streaming via raw `requests` with `stream=True`.                  |
-| [ssml-emotion](./recipes/audio/python/sdk/ssml-emotion)                                          | SDK    | Control emotion, pitch, rate, pauses & emphasis via SSML.         |
+| [ssml-emotion](./recipes/audio/python/sdk/ssml-emotion)                                          | SDK    | Pauses, speaking rate & pronunciation aliases via SSML.           |
 | [ssml-emotion](./recipes/audio/python/native/ssml-emotion)                                       | Native | Same SSML controls, via raw `requests`.                           |
 | [speech-marks](./recipes/audio/python/sdk/speech-marks)                                          | SDK    | Word-level timestamps → WebVTT captions.                          |
 | [speech-marks](./recipes/audio/python/native/speech-marks)                                       | Native | Same captions, via raw `requests`.                                |
@@ -98,7 +98,7 @@ recipes/<product>/<language>/{sdk,native}/<recipe>/
 | ---------------------------------------------------------------------------------------------- | ------ | ----------------------------------------------------------------- |
 | [quickstart](./recipes/audio/bash/native/quickstart)                                           | Native | Synthesize speech to an MP3 file with `curl` + `jq`.              |
 | [streaming](./recipes/audio/bash/native/streaming)                                             | Native | Stream raw audio bytes straight to disk with `curl --no-buffer`.  |
-| [ssml-emotion](./recipes/audio/bash/native/ssml-emotion)                                       | Native | SSML emotion/prosody via a single `curl` call (`jq` builds JSON). |
+| [ssml-emotion](./recipes/audio/bash/native/ssml-emotion)                                       | Native | SSML pauses, rate & aliases via `curl` (`jq` builds the JSON).    |
 | [speech-marks](./recipes/audio/bash/native/speech-marks)                                       | Native | Speech marks → WebVTT captions, formatted entirely in `jq`.       |
 | [voice-cloning](./recipes/audio/bash/native/voice-cloning)                                     | Native | Multipart clone → speech → delete, with an `EXIT` trap cleanup.   |
 | [multilingual](./recipes/audio/bash/native/multilingual)                                       | Native | Non-English synthesis with `simba-3.0` + the `language` param.    |
