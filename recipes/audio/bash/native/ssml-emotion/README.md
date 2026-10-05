@@ -1,6 +1,6 @@
-# Text-to-Speech: SSML & emotion (Bash, native REST)
+# Text-to-Speech: SSML pauses, pacing & pronunciation (Bash, native REST)
 
-Drive emotion, pitch, rate, pauses, and emphasis by passing **SSML** as the `input` —
+Shape pauses, speaking rate, and pronunciation by passing **SSML** as the `input`, the
 same as the [TypeScript](../../../typescript/native/ssml-emotion) and
 [Python](../../../python/native/ssml-emotion) native SSML recipes, but as a
 self-contained shell script using `curl` + `jq`.
@@ -23,18 +23,17 @@ chmod +x speech.sh
 ./speech.sh
 ```
 
-You'll get an `output.mp3` that shifts emotion and prosody across the sentence.
+You'll get an `output.mp3` with timed pauses, one slower sentence, and `CI` spoken as
+"continuous integration".
 
 ## What it does
 
 - Builds the request body with `jq -n --arg input "$SSML" ...` so the SSML string is
   JSON-escaped safely (newlines, quotes, angle brackets).
-- `POST https://api.speechify.ai/v1/audio/speech` with `model: "simba-3.2"`
-  (full SSML + emotion support).
-- **Emotion:** `<speechify:style emotion="...">` — one of `angry`, `cheerful`, `sad`,
-  `terrified`, `relaxed`, `fearful`, `surprised`, `calm`, `assertive`, `energetic`,
-  `warm`, `direct`, `bright`.
-- **Prosody:** `<prosody rate="..." pitch="..." volume="...">`. **Pauses:**
-  `<break time="500ms" />`. **Emphasis:** `<emphasis level="strong">`.
+- `POST https://api.speechify.ai/v1/audio/speech` with `model: "simba-3.2"`.
+- **Pauses:** `<break time="500ms" />`. **Pacing:** `<prosody rate="...">` (named steps or
+  percentages). **Pronunciation:** `<sub alias="...">` speaks the alias in place of the text.
+- Emotion (`<speechify:style emotion>`), pitch, volume, and emphasis tags are accepted and
+  not applied on current models (`simba-3.2`, `simba-3.0`).
 
-> SSML reference: https://docs.speechify.ai/tts/guides/ssml
+> SSML reference: https://docs.speechify.ai/build/guides/text-to-speech/ssml

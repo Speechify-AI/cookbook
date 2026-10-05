@@ -1,6 +1,6 @@
-# Text-to-Speech: SSML & emotion (Python)
+# Text-to-Speech: SSML pauses, pacing & pronunciation (Python)
 
-Drive emotion, pitch, rate, pauses, and emphasis by passing **SSML** as the `input`.
+Shape pauses, speaking rate, and pronunciation by passing **SSML** as the `input`.
 
 ## Prerequisites
 
@@ -20,16 +20,18 @@ uv sync
 uv run main.py
 ```
 
-You'll get an `output.mp3` that shifts emotion and prosody across the sentence.
+You'll get an `output.mp3` with timed pauses, one slower sentence, and `CI` spoken as
+"continuous integration".
 
 ## What it does
 
 - Sends an SSML document (single `<speak>` root) as `input` to `client.audio.speech`.
-- **Emotion:** `<speechify:style emotion="...">` — one of `angry`, `cheerful`, `sad`,
-  `terrified`, `relaxed`, `fearful`, `surprised`, `calm`, `assertive`, `energetic`,
-  `warm`, `direct`, `bright`.
-- **Prosody:** `<prosody rate="..." pitch="..." volume="...">` (named steps or percentages).
-- **Pauses:** `<break time="500ms" />`. **Emphasis:** `<emphasis level="strong">`.
-- Uses `model="simba-3.2"`, which supports full SSML + emotion control.
+- **Pauses:** `<break time="500ms" />` inserts silence of a set length.
+- **Pacing:** `<prosody rate="...">` takes `x-slow`, `slow`, `medium`, `fast`, `x-fast`,
+  or a percentage such as `-20%`.
+- **Pronunciation:** `<sub alias="...">` speaks the alias in place of the written text.
+- Uses `model="simba-3.2"`.
+- Emotion (`<speechify:style emotion>`), pitch, volume, and emphasis tags are accepted and
+  not applied on current models (`simba-3.2`, `simba-3.0`).
 
-> SSML reference: https://docs.speechify.ai/tts/guides/ssml
+> SSML reference: https://docs.speechify.ai/build/guides/text-to-speech/ssml

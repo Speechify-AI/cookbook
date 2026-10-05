@@ -1,4 +1,4 @@
-# Text-to-Speech: SSML & emotion (Python, native REST)
+# Text-to-Speech: SSML pauses, pacing & pronunciation (Python, native REST)
 
 The same as [`ssml-emotion`](../../sdk/ssml-emotion), but calling the REST API directly
 with `requests` instead of the `speechify-api` SDK.
@@ -21,18 +21,17 @@ uv sync
 uv run main.py
 ```
 
-You'll get an `output.mp3` that shifts emotion and prosody across the sentence.
+You'll get an `output.mp3` with timed pauses, one slower sentence, and `CI` spoken as
+"continuous integration".
 
 ## What it does
 
 - `POST https://api.speechify.ai/v1/audio/speech` with `Authorization: Bearer <key>`.
 - JSON body has SSML as the `input` value (single `<speak>` root), plus `voice_id`,
-  `audio_format`, and `model: "simba-3.2"` (full SSML + emotion support).
-- **Emotion:** `<speechify:style emotion="...">` — one of `angry`, `cheerful`, `sad`,
-  `terrified`, `relaxed`, `fearful`, `surprised`, `calm`, `assertive`, `energetic`,
-  `warm`, `direct`, `bright`.
-- **Prosody:** `<prosody rate="..." pitch="..." volume="...">` (named steps or
-  percentages). **Pauses:** `<break time="500ms" />`. **Emphasis:**
-  `<emphasis level="strong">`.
+  `audio_format`, and `model: "simba-3.2"`.
+- **Pauses:** `<break time="500ms" />`. **Pacing:** `<prosody rate="...">` (named steps or
+  percentages). **Pronunciation:** `<sub alias="...">` speaks the alias in place of the text.
+- Emotion (`<speechify:style emotion>`), pitch, volume, and emphasis tags are accepted and
+  not applied on current models (`simba-3.2`, `simba-3.0`).
 
-> SSML reference: https://docs.speechify.ai/tts/guides/ssml
+> SSML reference: https://docs.speechify.ai/build/guides/text-to-speech/ssml

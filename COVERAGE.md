@@ -19,7 +19,7 @@ Legend also: — not applicable.
 | -------------------------------------- | :---------------: | :------------------: | :-----------: | :--------------: | :------------: |
 | quickstart (synthesize to file)        |        ✅         |          ✅          |      ✅       |        ✅        |       ✅       |
 | streaming                              |        ✅         |          ✅          |      ✅       |        ✅        |       ✅       |
-| SSML controls (pitch / rate / emotion) |        ✅         |          ✅          |      ✅       |        ✅        |       ✅       |
+| SSML (pauses / pacing / pronunciation) |        ✅         |          ✅          |      ✅       |        ✅        |       ✅       |
 | word-level timestamps (caption sync)   |        ✅         |          ✅          |      ✅       |        ✅        |       ✅       |
 | multilingual (language param)          |        ✅         |          ✅          |      ✅       |        ✅        |       ✅       |
 | output formats (telephony / bitrate)   |        ✅         |          ✅          |      ✅       |        ✅        |       ✅       |

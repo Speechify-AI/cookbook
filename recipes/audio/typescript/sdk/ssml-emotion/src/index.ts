@@ -8,18 +8,17 @@ if (!process.env.SPEECHIFY_API_KEY) {
 
 const client = new SpeechifyClient({ token: process.env.SPEECHIFY_API_KEY });
 
-// SSML input must have a single <speak> root. Speechify supports standard SSML
-// (prosody / break / emphasis) plus the <speechify:style emotion="..."> tag.
-// Emotions: angry, cheerful, sad, terrified, relaxed, fearful, surprised, calm,
-//           assertive, energetic, warm, direct, bright.
+// SSML input must have a single <speak> root. simba-3.2 and simba-3.0 apply <break>,
+// <prosody rate> and <sub alias>. They accept <prosody pitch>, <prosody volume>,
+// <emphasis> and <speechify:style emotion> but do not apply them.
 const ssml = `<speak>
-  <speechify:style emotion="cheerful">Great news — the build passed!</speechify:style>
+  Great news, the build passed!
   <break time="500ms" />
-  <prosody rate="slow" pitch="low">But read the next part carefully.</prosody>
+  <prosody rate="slow">But read the next part carefully.</prosody>
   <break time="300ms" />
-  <speechify:style emotion="assertive">Do not deploy on a Friday.</speechify:style>
+  Do not deploy on a Friday.
   <break time="400ms" />
-  This is <emphasis level="strong">critical</emphasis>.
+  Check the <sub alias="continuous integration">CI</sub> dashboard before you merge.
 </speak>`;
 
 async function main() {
@@ -27,7 +26,7 @@ async function main() {
     input: ssml,
     voice_id: "geffen_32",
     audio_format: "mp3",
-    model: "simba-3.2", // simba-3.2 supports full SSML + emotion control
+    model: "simba-3.2",
   });
 
   const outFile = "output.mp3";
