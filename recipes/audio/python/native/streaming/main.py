@@ -1,4 +1,6 @@
 import os
+from pathlib import Path
+from tempfile import NamedTemporaryFile
 
 import requests
 from dotenv import load_dotenv
@@ -37,11 +39,16 @@ def main() -> None:
     ) as resp:
         resp.raise_for_status()
 
-        out_file = "output.mp3"
-        with open(out_file, "wb") as f:
-            for chunk in resp.iter_content(chunk_size=8192):
-                if chunk:
-                    f.write(chunk)
+        out_file = Path("output.mp3")
+        temp = NamedTemporaryFile(dir=out_file.parent, delete=False)
+        try:
+            with temp:
+                for chunk in resp.iter_content(chunk_size=8192):
+                    if chunk:
+                        temp.write(chunk)
+            os.replace(temp.name, out_file)
+        finally:
+            Path(temp.name).unlink(missing_ok=True)
         print(f"Streamed audio to {out_file}")
 
 
